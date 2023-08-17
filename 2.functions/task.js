@@ -25,8 +25,8 @@ function summElementsWorker(...arr) {
 }
 
 function differenceMaxMinWorker(...arr) {
-  const max = Math.max(...arr);
-  const min = Math.min(...arr);
+  let max = Math.max(...arr);
+  let min = Math.min(...arr);
   return max - min;
 }
 
