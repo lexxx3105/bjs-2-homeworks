@@ -17,19 +17,37 @@ function getArrayParams(...arr) {
 }
 
 function summElementsWorker(...arr) {
-
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
 }
 
 function differenceMaxMinWorker(...arr) {
-
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+  return max - min;
 }
 
 function differenceEvenOddWorker(...arr) {
+  let evenSum = 0, oddSum = 0;
 
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 === 0) {
+      evenSum += arr[i];
+    } else {
+      oddSum += arr[i];
+    }
+  }
+
+  return Math.abs(evenSum - oddSum);
 }
 
 function averageEvenElementsWorker(...arr) {
-
+  let count = arr.filter(x => x % 2 === 0).length;
+  let avg = (arr.filter(x => x % 2 === 0).reduce((a, b) => a + b, 0)) / count;
+  return avg;
 }
 
 function makeWork (arrOfArr, func) {
