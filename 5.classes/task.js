@@ -29,11 +29,11 @@ class PrintEditionItem {
             this.type = "magazine";
         } 
     }
-    class book extends PrintEditionItem {
-        constructor (autor, name, releaseDate, pagesCount) {
-            super (autor, name, releaseDate, pagesCount)
+    class Book extends PrintEditionItem {
+        constructor (name, releaseDate, pagesCount) {
+            super (name, releaseDate, pagesCount)
             this.author = author;
-            this.type = book; 
+            this.type = "book"; 
         }
     }
     class NovelBook extends Book {
@@ -54,3 +54,34 @@ class PrintEditionItem {
             this.type = "detective"; 
         }
     }
+    class Library {
+        constructor(name) {
+          this.name = name;
+          this.books = [];
+        }
+      
+        addBook(book) {
+          if (book.state > 30) {
+            this.books.push(book);
+          }
+        }
+      
+        findBookBy(type, value) {
+          const book = this.books.find(b => b[type] === value);
+          return book;
+        }
+      
+        giveBookByName(bookName) {
+          const foundBook = this.findBookBy("name", bookName);
+          if (foundBook) {
+            const removedBook = this.removeBook(foundBook);
+            return removedBook;
+          } else {
+            return null;
+          }
+        }
+      }
+
+
+      
+    
