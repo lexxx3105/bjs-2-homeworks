@@ -30,7 +30,7 @@ class PrintEditionItem {
         } 
     }
     class Book extends PrintEditionItem {
-        constructor (name, releaseDate, pagesCount) {
+        constructor (author, name, releaseDate, pagesCount) {
             super (name, releaseDate, pagesCount)
             this.author = author;
             this.type = "book"; 
@@ -74,13 +74,8 @@ class PrintEditionItem {
         giveBookByName(bookName) {
           const foundBook = this.findBookBy("name", bookName);
           if (foundBook) {
-            const removedBook = this.removeBook(foundBook);
-            return removedBook;
-          } else {
-            return null;
+            this.books.splice(foundBook);
+            } 
+            return foundBook;
           }
-        }
       }
-
-      
-    
